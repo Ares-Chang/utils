@@ -7,6 +7,25 @@
 [![License][license-src]][license-href]
 
 Opinionated collection of common JavaScript / TypeScript utils by @Ares-Chang
+由 [Ares Chang](https://github.com/Ares-Chang) 编写的 [JavaScript / TypeScript 工具包](https://github.com/Ares-Chang/utils)
+
+## 🚀 Install
+
+```sh
+pnpm add uni-use-router --save-dev
+```
+
+## ⚡️ Usage
+
+```ts
+import { toArray } from '@areschang/utils'
+
+toArray(1, 2, 3) // => [1, 2, 3]
+```
+
+## 💖Express
+
+- [@antfu/utils](https://github.com/antfu/utils)
 
 ## License
 
