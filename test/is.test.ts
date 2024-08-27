@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest'
 import {
   isArray,
   isArrayBuffer,
-  isBlob,
   isBoolean,
   isBrowser,
   isDate,

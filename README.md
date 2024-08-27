@@ -6,7 +6,6 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Opinionated collection of common JavaScript / TypeScript utils by @Ares-Chang
 由 [Ares Chang](https://github.com/Ares-Chang) 编写的 [JavaScript / TypeScript 工具包](https://github.com/Ares-Chang/utils)
 
 ## 🚀 Install
