@@ -1,5 +1,23 @@
 import { describe, expect, it } from 'vitest'
-import { isBoolean, isBrowser, isDate, isDef, isFunction, isNull, isNumber, isObject, isRegExp, isString, isUndefined, isWindow } from '../src/is'
+import {
+  isArray,
+  isArrayBuffer,
+  isBlob,
+  isBoolean,
+  isBrowser,
+  isDate,
+  isDef,
+  isFile,
+  isFormData,
+  isFunction,
+  isNull,
+  isNumber,
+  isObject,
+  isRegExp,
+  isString,
+  isUndefined,
+  isWindow,
+} from '../src/is'
 
 describe('is 函数测试', () => {
   it('isDef 函数应正确判断有值和无值的情况', () => {
@@ -26,6 +44,13 @@ describe('is 函数测试', () => {
   it('isString 函数应正确判断字符串', () => {
     expect(isString('1')).toBe(true)
     expect(isString(1)).toBe(false)
+  })
+
+  it('isArray 函数应正确判断数组类型', () => {
+    const arr = [1, 2, 3]
+    expect(isArray(arr)).toBe(true)
+    const notArr = 123
+    expect(isArray(notArr)).toBe(false)
   })
 
   it('isObject 函数应正确判断对象', () => {
@@ -61,5 +86,26 @@ describe('is 函数测试', () => {
 
   it('isBrowser 函数应正确判断浏览器环境', () => {
     expect(isBrowser).toBe(false)
+  })
+
+  it('isBlob 函数应正确判断 FormData 类型', () => {
+    const formData = new FormData()
+    expect(isFormData(formData)).toBe(true)
+    const notFormData = {}
+    expect(isFormData(notFormData)).toBe(false)
+  })
+
+  it('isFile 函数应正确判断 File 类型', () => {
+    const file = new File([], 'test.txt')
+    expect(isFile(file)).toBe(true)
+    const notFile = {}
+    expect(isFile(notFile)).toBe(false)
+  })
+
+  it('isArrayBuffer 函数应正确判断 ArrayBuffer 类型', () => {
+    const buffer = new ArrayBuffer(10)
+    expect(isArrayBuffer(buffer)).toBe(true)
+    const notBuffer = 123
+    expect(isArrayBuffer(notBuffer)).toBe(false)
   })
 })
