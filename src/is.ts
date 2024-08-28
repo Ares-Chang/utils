@@ -28,6 +28,7 @@ export const isFile = (val: any): val is File => is(val, 'File')
 export const isArrayBuffer = (val: any): val is ArrayBuffer => is(val, 'ArrayBuffer')
 export const isMap = (val: any): val is Map<any, any> => is(val, 'Map')
 export const isSet = (val: any): val is Set<any> => is(val, 'Set')
+export const isPromise = <T = any>(val: unknown): val is Promise<T> => is(val, 'Promise')
 
 /**
  * 判断是否为空

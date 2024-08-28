@@ -15,6 +15,7 @@ import {
   isNull,
   isNumber,
   isObject,
+  isPromise,
   isRegExp,
   isSet,
   isString,
@@ -130,6 +131,13 @@ describe('is 函数测试', () => {
     expect(isSet(set)).toBe(true)
     const notSet = 123
     expect(isSet(notSet)).toBe(false)
+  })
+
+  it('isPromise 函数应正确判断 Promise 类型', () => {
+    const promise = new Promise(() => {})
+    expect(isPromise(promise)).toBe(true)
+    const notPromise = 123
+    expect(isPromise(notPromise)).toBe(false)
   })
 
   it('isEmpty 函数应正确判断空值', () => {
