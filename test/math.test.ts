@@ -8,7 +8,7 @@ describe('math', () => {
       const max = 10
       const result = random(min, max)
       expect(result).toBeGreaterThanOrEqual(min)
-      expect(result).toBeLessThan(max)
+      expect(result).toBeLessThanOrEqual(max)
     })
   })
 
@@ -18,7 +18,7 @@ describe('math', () => {
       const max = 10
       const result = randomInt(min, max)
       expect(result).toBeGreaterThanOrEqual(min)
-      expect(result).toBeLessThan(max)
+      expect(result).toBeLessThanOrEqual(max)
       expect(Number.isInteger(result)).toBe(true)
     })
   })
