@@ -1,24 +1,34 @@
 import { describe, expect, it } from 'vitest'
 import {
+  is,
   isArray,
   isArrayBuffer,
   isBoolean,
   isBrowser,
   isDate,
   isDef,
+  isEmpty,
   isFile,
   isFormData,
   isFunction,
+  isMap,
   isNull,
   isNumber,
   isObject,
   isRegExp,
+  isSet,
   isString,
   isUndefined,
   isWindow,
 } from '../src/is'
 
 describe('is 函数测试', () => {
+  it('is 函数应正确判断类型', () => {
+    expect(is(1, 'Number')).toBe(true)
+    expect(is(null, 'Null')).toBe(true)
+    expect(is(1, 'String')).toBe(false)
+  })
+
   it('isDef 函数应正确判断有值和无值的情况', () => {
     expect(isDef(1)).toBe(true)
     expect(isDef(undefined)).toBe(false)
@@ -106,5 +116,27 @@ describe('is 函数测试', () => {
     expect(isArrayBuffer(buffer)).toBe(true)
     const notBuffer = 123
     expect(isArrayBuffer(notBuffer)).toBe(false)
+  })
+
+  it('isMap 函数应正确判断 Map 类型', () => {
+    const map = new Map()
+    expect(isMap(map)).toBe(true)
+    const notMap = 123
+    expect(isMap(notMap)).toBe(false)
+  })
+
+  it('isSet 函数应正确判断 Set 类型', () => {
+    const set = new Set()
+    expect(isSet(set)).toBe(true)
+    const notSet = 123
+    expect(isSet(notSet)).toBe(false)
+  })
+
+  it('isEmpty 函数应正确判断空值', () => {
+    expect(isEmpty({})).toBe(true)
+    expect(isEmpty(123)).toBe(false)
+    expect(isEmpty([1, 2, 3])).toBe(false)
+    expect(isEmpty('')).toBe(true)
+    expect(isEmpty(null)).toBe(false)
   })
 })
