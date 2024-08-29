@@ -17,3 +17,25 @@ export function isEmpty<T = unknown>(val: T): val is T {
 
   return false
 }
+
+/**
+ * 判断是否为手机号
+ * @param val
+ * @returns 是否为手机号
+ * @example isMobileNum(13333333333) // => true
+ */
+export function isMobileNum(val: string | number): boolean {
+  return /^1[3-9]\d{9}$/.test(String(val))
+}
+
+/**
+ * 判断是否为车牌号
+ * @param val
+ * @returns 是否为车牌号
+ */
+export function isCarNo(val: string): boolean {
+  const oldPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z][A-Z][A-Z0-9]{4}[A-Z0-9挂学警港澳]$/
+  const newEnergyPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z](?:(?:[A-Z](?![DF][0-9A-Z])[DF]|[A-Z]{2})[A-Z0-9]{5}|[A-Z0-9]{4}[DF])$/
+
+  return oldPattern.test(val) || newEnergyPattern.test(val)
+}
