@@ -4,10 +4,8 @@ import {
   isArray,
   isArrayBuffer,
   isBoolean,
-  isBrowser,
   isDate,
   isDef,
-  isEmpty,
   isFile,
   isFormData,
   isFunction,
@@ -20,10 +18,9 @@ import {
   isSet,
   isString,
   isUndefined,
-  isWindow,
-} from '../src/is'
+} from '../../src/is/types'
 
-describe('is 函数测试', () => {
+describe('is JS Types 函数测试', () => {
   it('is 函数应正确判断类型', () => {
     expect(is(1, 'Number')).toBe(true)
     expect(is(null, 'Null')).toBe(true)
@@ -90,14 +87,6 @@ describe('is 函数测试', () => {
     expect(isDate(1)).toBe(false)
   })
 
-  it('isWindow 函数应正确判断 window 对象', () => {
-    expect(isWindow({})).toBe(false)
-  })
-
-  it('isBrowser 函数应正确判断浏览器环境', () => {
-    expect(isBrowser).toBe(false)
-  })
-
   it('isBlob 函数应正确判断 FormData 类型', () => {
     const formData = new FormData()
     expect(isFormData(formData)).toBe(true)
@@ -138,13 +127,5 @@ describe('is 函数测试', () => {
     expect(isPromise(promise)).toBe(true)
     const notPromise = 123
     expect(isPromise(notPromise)).toBe(false)
-  })
-
-  it('isEmpty 函数应正确判断空值', () => {
-    expect(isEmpty({})).toBe(true)
-    expect(isEmpty(123)).toBe(false)
-    expect(isEmpty([1, 2, 3])).toBe(false)
-    expect(isEmpty('')).toBe(true)
-    expect(isEmpty(null)).toBe(false)
   })
 })

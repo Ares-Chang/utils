@@ -1,5 +1,5 @@
-import type { Fn } from './types'
-import { toString } from './base'
+import type { Fn } from '../types'
+import { toString } from '../base'
 
 /**
  * 判断值的类型
@@ -29,26 +29,3 @@ export const isArrayBuffer = (val: any): val is ArrayBuffer => is(val, 'ArrayBuf
 export const isMap = (val: any): val is Map<any, any> => is(val, 'Map')
 export const isSet = (val: any): val is Set<any> => is(val, 'Set')
 export const isPromise = <T = any>(val: unknown): val is Promise<T> => is(val, 'Promise')
-
-/**
- * 判断是否为空
- * @param val
- * @returns 是否为空
- */
-export function isEmpty<T = unknown>(val: T): val is T {
-  if (isArray(val) || isString(val))
-    return val.length === 0
-
-  if (isMap(val) || isSet(val))
-    return val.size === 0
-
-  if (isObject(val))
-    return Object.keys(val).length === 0
-
-  return false
-}
-
-// @ts-expect-error 检测 window
-export const isWindow = (val: any): boolean => typeof window !== 'undefined' && is(val, 'Window')
-// @ts-expect-error 检测 window
-export const isBrowser = typeof window !== 'undefined'
