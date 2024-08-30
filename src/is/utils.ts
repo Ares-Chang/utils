@@ -59,3 +59,12 @@ export function isEmail(val: string): boolean {
   // return /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(String(val))
   return /^[\w.+-]+@[a-z0-9-]+\.[a-z0-9-.]+$/i.test(String(val))
 }
+
+/**
+ * 判断是否为 url
+ * @param val
+ * @returns 是否为 url
+ */
+export function isUrl(val: string): boolean {
+  return /^https?:\/\/.*/.test(String(val))
+}

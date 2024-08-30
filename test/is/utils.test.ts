@@ -5,6 +5,7 @@ import {
   isEmail,
   isEmpty,
   isMobileNum,
+  isUrl,
 } from '../../src/is/utils'
 
 describe('is 工具函数测试', () => {
@@ -63,5 +64,12 @@ describe('is 工具函数测试', () => {
     expect(isEmail('mail@areschang.me')).toBe(true)
     expect(isEmail('123')).toBe(false)
     expect(isEmail('123@')).toBe(false)
+  })
+
+  it('isUrl 函数应正确判断 url', () => {
+    expect(isUrl('https://areschang.me')).toBe(true)
+    expect(isUrl('http://areschang.me')).toBe(true)
+    expect(isUrl('areschang.me')).toBe(false)
+    expect(isUrl('//areschang.me')).toBe(false)
   })
 })
