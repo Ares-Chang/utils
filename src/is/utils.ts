@@ -39,3 +39,13 @@ export function isCarNo(val: string): boolean {
 
   return oldPattern.test(val) || newEnergyPattern.test(val)
 }
+
+/**
+ * 判断是否为身份证
+ * @param val
+ * @returns 是否为身份证
+ * @example isCard('110101199003070134') // => true
+ */
+export function isCard(val: string): boolean {
+  return /^(?:[1-9]\d{7}(?:0\d|1[0-2])(?:[0|12]\d|3[01])\d{3}$|[1-9]\d{5}[1-9]\d{3}(?:0\d|1[0-2])(?:[0|12]\d|3[01])(?:\d{4}|\d{3}X)$)/i.test(String(val))
+}

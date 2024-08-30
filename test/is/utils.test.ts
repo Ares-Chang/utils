@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   isCarNo,
+  isCard,
   isEmpty,
   isMobileNum,
 } from '../../src/is/utils'
@@ -42,5 +43,16 @@ describe('is 工具函数测试', () => {
     expect(isCarNo('京DD12345')).toBe(true)
     expect(isCarNo('京DF1234D')).toBe(true)
     expect(isCarNo('京DF1234F')).toBe(true)
+  })
+
+  it('isCard 函数应正确判断身份证', () => {
+    expect(isCard('110101199003070134')).toBe(true)
+
+    expect(isCard('11010119900307013')).toBe(false)
+    expect(isCard('1101011990030701345')).toBe(false)
+
+    expect(isCard('11010119900307013X')).toBe(true)
+
+    expect(isCard('999999999999999999')).toBe(false)
   })
 })
