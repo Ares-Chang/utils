@@ -1,11 +1,24 @@
-import { isArray, isMap, isObject, isSet, isString } from './types'
+import { isArray, isMap, isNumber, isObject, isSet, isString } from './types'
 
 /**
  * 判断是否为空
+ *
+ * 判断区间为: null, undefined, NaN, 0, '', [], {}, new Map(), new Set()
+ *
  * @param val
  * @returns 是否为空
  */
 export function isEmpty<T = unknown>(val: T): val is T {
+  if (val === null || val === undefined)
+    return true
+
+  if (isNumber(val)) {
+    if (Number.isNaN(val))
+      return true
+
+    return val === 0
+  }
+
   if (isArray(val) || isString(val))
     return val.length === 0
 
@@ -20,6 +33,7 @@ export function isEmpty<T = unknown>(val: T): val is T {
 
 /**
  * 判断是否为手机号
+ *
  * @param val
  * @returns 是否为手机号
  * @example isMobileNum(13333333333) // => true
@@ -30,6 +44,7 @@ export function isMobileNum(val: string | number): boolean {
 
 /**
  * 判断是否为车牌号
+ *
  * @param val
  * @returns 是否为车牌号
  */
@@ -42,6 +57,7 @@ export function isCarNo(val: string): boolean {
 
 /**
  * 判断是否为身份证
+ *
  * @param val
  * @returns 是否为身份证
  * @example isCard('110101199003070134') // => true
@@ -52,6 +68,7 @@ export function isCard(val: string): boolean {
 
 /**
  * 判断是否为邮箱
+ *
  * @param val
  * @returns 是否为邮箱
  */
@@ -62,6 +79,7 @@ export function isEmail(val: string): boolean {
 
 /**
  * 判断是否为 url
+ *
  * @param val
  * @returns 是否为 url
  */

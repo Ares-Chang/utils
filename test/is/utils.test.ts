@@ -10,11 +10,19 @@ import {
 
 describe('is 工具函数测试', () => {
   it('isEmpty 函数应正确判断空值', () => {
-    expect(isEmpty({})).toBe(true)
-    expect(isEmpty(123)).toBe(false)
-    expect(isEmpty([1, 2, 3])).toBe(false)
+    expect(isEmpty(0)).toBe(true)
     expect(isEmpty('')).toBe(true)
-    expect(isEmpty(null)).toBe(false)
+    expect(isEmpty({})).toBe(true)
+    expect(isEmpty(undefined)).toBe(true)
+    expect(isEmpty(null)).toBe(true)
+    expect(isEmpty(Number.NaN)).toBe(true)
+    expect(isEmpty(new Map())).toBe(true)
+    expect(isEmpty(new Set())).toBe(true)
+
+    expect(isEmpty(123)).toBe(false)
+    expect(isEmpty('123')).toBe(false)
+    expect(isEmpty([1, 2, 3])).toBe(false)
+    expect(isEmpty(new Map([[1, 2], [3, 4]]))).toBe(false)
   })
 
   it('isMobileNum 函数应正确判断手机号', () => {
