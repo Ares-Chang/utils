@@ -49,3 +49,13 @@ export function isCarNo(val: string): boolean {
 export function isCard(val: string): boolean {
   return /^(?:[1-9]\d{7}(?:0\d|1[0-2])(?:[0|12]\d|3[01])\d{3}$|[1-9]\d{5}[1-9]\d{3}(?:0\d|1[0-2])(?:[0|12]\d|3[01])(?:\d{4}|\d{3}X)$)/i.test(String(val))
 }
+
+/**
+ * 判断是否为邮箱
+ * @param val
+ * @returns 是否为邮箱
+ */
+export function isEmail(val: string): boolean {
+  // return /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(String(val))
+  return /^[\w.+-]+@[a-z0-9-]+\.[a-z0-9-.]+$/i.test(String(val))
+}

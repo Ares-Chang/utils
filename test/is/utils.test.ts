@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   isCarNo,
   isCard,
+  isEmail,
   isEmpty,
   isMobileNum,
 } from '../../src/is/utils'
@@ -54,5 +55,13 @@ describe('is 工具函数测试', () => {
     expect(isCard('11010119900307013X')).toBe(true)
 
     expect(isCard('999999999999999999')).toBe(false)
+  })
+
+  it('isEmail 函数应正确判断邮箱', () => {
+    expect(isEmail('123@qq.com')).toBe(true)
+    expect(isEmail('test@email.com')).toBe(true)
+    expect(isEmail('mail@areschang.me')).toBe(true)
+    expect(isEmail('123')).toBe(false)
+    expect(isEmail('123@')).toBe(false)
   })
 })
