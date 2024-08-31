@@ -20,6 +20,16 @@ export const isObject = (val: any): val is object => is(val, 'Object')
 export const isUndefined = (val: any): val is undefined => is(val, 'Undefined')
 export const isNull = (val: any): val is null => is(val, 'Null')
 
+/**
+ * 判断是否为 window
+ *
+ * @param val
+ * @returns 是否为 window
+ */
+export function isWindow(val: any): boolean {
+  return typeof window !== 'undefined' && is(val, 'Window')
+}
+
 export const isRegExp = (val: any): val is RegExp => is(val, 'RegExp')
 export const isDate = (val: any): val is Date => is(val, 'Date')
 export const isFormData = (val: any): val is FormData => is(val, 'FormData')

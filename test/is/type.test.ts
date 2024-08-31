@@ -18,6 +18,7 @@ import {
   isSet,
   isString,
   isUndefined,
+  isWindow,
 } from '../../src/is/types'
 
 describe('is JS Types 函数测试', () => {
@@ -38,7 +39,7 @@ describe('is JS Types 函数测试', () => {
   })
 
   it('isFunction 函数应正确判断函数', () => {
-    const func = () => {}
+    const func = () => { }
     expect(isFunction(func)).toBe(true)
     expect(isFunction(1)).toBe(false)
   })
@@ -73,6 +74,10 @@ describe('is JS Types 函数测试', () => {
   it('isNull 函数应正确判断 null', () => {
     expect(isNull(null)).toBe(true)
     expect(isNull(1)).toBe(false)
+  })
+
+  it('isWindow 函数应正确判断 window 对象', () => {
+    expect(isWindow({})).toBe(false)
   })
 
   it('isRegExp 函数应正确判断正则表达式', () => {
@@ -123,7 +128,7 @@ describe('is JS Types 函数测试', () => {
   })
 
   it('isPromise 函数应正确判断 Promise 类型', () => {
-    const promise = new Promise(() => {})
+    const promise = new Promise(() => { })
     expect(isPromise(promise)).toBe(true)
     const notPromise = 123
     expect(isPromise(notPromise)).toBe(false)
