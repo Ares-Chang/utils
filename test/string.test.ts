@@ -1,7 +1,22 @@
 import { describe, expect, it } from 'vitest'
-import { ensurePrefix, ensureSuffix, slash, trim, trimAll, trimLeft, trimRight } from '../src/string'
+import {
+  ensurePrefix,
+  ensureSuffix,
+  randomStr,
+  slash,
+  trim,
+  trimAll,
+  trimLeft,
+  trimRight,
+} from '../src/string'
 
 describe('string', () => {
+  describe('randomStr Function', () => {
+    it('应该生成随机字符串', () => {
+      expect(randomStr()).toHaveLength(16)
+    })
+  })
+
   describe('slash Function', () => {
     it('应该将字符串中的 \ 转换为 /', () => {
       expect(slash('hello\\world')).toBe('hello/world')
