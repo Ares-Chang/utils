@@ -1,12 +1,21 @@
 import { describe, expect, it } from 'vitest'
 import {
+  camelCase,
+  capitalize,
   ensurePrefix,
   ensureSuffix,
+  kebabCase,
+  lowerCamelCase,
+  lowerCase,
   slash,
+  snakeCase,
+  titleCase,
   trim,
   trimAll,
   trimLeft,
   trimRight,
+  upperCamelCase,
+  upperCase,
 } from '../src/string'
 
 describe('string', () => {
@@ -49,6 +58,69 @@ describe('string', () => {
   describe('trimRight 函数', () => {
     it('应该去除字符串右边空格', () => {
       expect(trimRight('  hello  ')).toBe('  hello')
+    })
+  })
+
+  describe('字符转换', () => {
+    it('全部小写(lowerCase)', () => {
+      expect(lowerCase('HELLO')).toBe('hello')
+      expect(lowerCase('HELLO-b')).toBe('hello-b')
+      expect(lowerCase('Hello c')).toBe('hello c')
+    })
+
+    it('全部大写(upperCase)', () => {
+      expect(upperCase('hello')).toBe('HELLO')
+      expect(upperCase('hello-b')).toBe('HELLO-B')
+      expect(upperCase('Hello c')).toBe('HELLO C')
+    })
+
+    it('首字母大写(capitalize)', () => {
+      expect(capitalize('hello')).toBe('Hello')
+      expect(capitalize('hello-b')).toBe('Hello-b')
+      expect(capitalize('Hello c')).toBe('Hello c')
+    })
+
+    it('标题大小写(titleCase)', () => {
+      expect(titleCase('hello')).toBe('Hello')
+      expect(titleCase('hello-b')).toBe('Hello B')
+      expect(titleCase('Hello c')).toBe('Hello C')
+      expect(titleCase('HelloD')).toBe('Hello D')
+    })
+
+    it('短横线(kebabCase)', () => {
+      expect(kebabCase('HELLO')).toBe('hello')
+      expect(kebabCase('hello-b')).toBe('hello-b')
+      expect(kebabCase('Hello c')).toBe('hello-c')
+      expect(kebabCase('HelloD')).toBe('hello-d')
+      expect(kebabCase('Hello_E')).toBe('hello-e')
+    })
+
+    it('下划线(snakeCase)', () => {
+      expect(snakeCase('HELLO')).toBe('hello')
+      expect(snakeCase('hello-b')).toBe('hello_b')
+      expect(snakeCase('hello C')).toBe('hello_c')
+      expect(snakeCase('HelloD')).toBe('hello_d')
+    })
+
+    it('小驼峰(lowerCamelCase)', () => {
+      expect(lowerCamelCase('HELLO')).toBe('hello')
+      expect(lowerCamelCase('hello-b')).toBe('helloB')
+      expect(lowerCamelCase('hello C')).toBe('helloC')
+      expect(lowerCamelCase('HelloD')).toBe('helloD')
+      expect(lowerCamelCase('Hello_e')).toBe('helloE')
+    })
+
+    it('大驼峰(upperCamelCase)', () => {
+      expect(upperCamelCase('HELLO')).toBe('Hello')
+      expect(upperCamelCase('hello-b')).toBe('HelloB')
+      expect(upperCamelCase('hello C')).toBe('HelloC')
+      expect(upperCamelCase('HelloD')).toBe('HelloD')
+      expect(upperCamelCase('Hello_e')).toBe('HelloE')
+    })
+
+    it('驼峰(camelCase)', () => {
+      expect(camelCase('lowerCamelCase')).toBe('lowerCamelCase')
+      expect(camelCase('upperCamelCase')).toBe('UpperCamelCase')
     })
   })
 })
