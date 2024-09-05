@@ -13,7 +13,10 @@
     "url": "git+https://github.com/Ares-Chang/utils.git"
   },
   "bugs": "https://github.com/Ares-Chang/utils/issues",
-  "keywords": [],
+  "keywords": [
+    "AresChang",
+    "utils"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
