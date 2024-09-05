@@ -119,9 +119,9 @@ describe('string', () => {
     })
 
     it('驼峰(camelCase)', () => {
-      expect(camelCase()).toBe('lowerCamelCase')
-      expect(camelCase('lowerCamelCase')).toBe('lowerCamelCase')
-      expect(camelCase('upperCamelCase')).toBe('UpperCamelCase')
+      expect(camelCase('a_b_c')).toBe('aBC')
+      expect(camelCase('lowerCamelCase', 'lowerCamelCase')).toBe('lowerCamelCase')
+      expect(camelCase('upperCamelCase', 'upperCamelCase')).toBe('UpperCamelCase')
     })
   })
 })

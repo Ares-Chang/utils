@@ -154,8 +154,9 @@ export function upperCamelCase(str: string): string {
  * 转换为驼峰命名, 默认小驼峰
  *
  * @param str
+ * @param type
  * @example camelCase('CAMEL_CASE') // => 'camelCase'
  */
-export function camelCase(str: 'lowerCamelCase' | 'upperCamelCase' = 'lowerCamelCase'): string {
-  return str === 'lowerCamelCase' ? lowerCamelCase(str) : upperCamelCase(str)
+export function camelCase(str: string, type: 'lowerCamelCase' | 'upperCamelCase' = 'lowerCamelCase'): string {
+  return type === 'lowerCamelCase' ? lowerCamelCase(str) : upperCamelCase(str)
 }
