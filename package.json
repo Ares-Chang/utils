@@ -1,7 +1,7 @@
 {
   "name": "@areschang/utils",
   "type": "module",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "packageManager": "pnpm@9.5.0",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @Ares-Chang",
   "author": "Ares Change <AresChang114@qq.com>",
