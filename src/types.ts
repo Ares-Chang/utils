@@ -12,3 +12,10 @@ export type Arrayable<T> = T | Array<T>
  * Function
  */
 export type Fn<T = void> = () => T
+
+/**
+ * AnyObject
+ */
+export interface AnyObject {
+  [key: string]: any
+}
