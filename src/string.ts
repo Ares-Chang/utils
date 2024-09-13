@@ -160,3 +160,25 @@ export function upperCamelCase(str: string): string {
 export function camelCase(str: string, type: 'lowerCamelCase' | 'upperCamelCase' = 'lowerCamelCase'): string {
   return type === 'lowerCamelCase' ? lowerCamelCase(str) : upperCamelCase(str)
 }
+
+export function desensitization(str: string, shim?: string): string
+export function desensitization(str: string, start?: number, end?: number, shim?: string): string
+export function desensitization(...arg: any): string {
+  const str = arg[0]
+
+  let start: number = 3
+  let end: number = 4
+  let shim: string = '*'
+
+  if (arg.length === 2)
+    shim = arg[1]
+
+  else if (arg.length > 2)
+    [start, end, shim = '*'] = arg.slice(1)
+
+  // 长度不够不处理
+  if (str.length < start + end)
+    return str
+
+  return str.slice(0, start) + shim.repeat(Math.max(0, str.length - start - end)) + str.slice(-end)
+}

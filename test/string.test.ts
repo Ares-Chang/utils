@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   camelCase,
   capitalize,
+  desensitization,
   ensurePrefix,
   ensureSuffix,
   kebabCase,
@@ -122,6 +123,21 @@ describe('string', () => {
       expect(camelCase('a_b_c')).toBe('aBC')
       expect(camelCase('lowerCamelCase', 'lowerCamelCase')).toBe('lowerCamelCase')
       expect(camelCase('upperCamelCase', 'upperCamelCase')).toBe('UpperCamelCase')
+    })
+  })
+
+  describe('信息脱敏', () => {
+    it('默认参数', () => {
+      expect(desensitization('1234567890')).toBe('123***7890')
+      expect(desensitization('110101199003070134')).toBe('110***********0134')
+      // 位数不够不处理
+      expect(desensitization('1234')).toBe('1234')
+    })
+
+    it('自定义参数', () => {
+      expect(desensitization('1234567890', '-')).toBe('123---7890')
+      expect(desensitization('110101199003070134', 6, 2)).toBe('110101**********34')
+      expect(desensitization('110101199003070134', 6, 2, '-')).toBe('110101----------34')
     })
   })
 })
