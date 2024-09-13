@@ -18,3 +18,8 @@ export function getTypeName(v: any): string {
   const type = toString(v).slice(8, -1).toLowerCase()
   return (typeof v === 'object' || typeof v === 'function') ? type : typeof v
 }
+
+/**
+ * 空函数，什么也不做
+ */
+export function noop(): void {}
