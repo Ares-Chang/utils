@@ -1,65 +1,49 @@
-import { getUA, isBrowser } from './base'
-
-/**
- * 判断是否为 PC
- * @returns 是否为 PC
- */
-export function isPC(): boolean {
-  return !isMobile() && !isPad()
-}
+import { isBrowser, ua } from './base'
 
 /**
  * 判断是否为移动端
  * @returns 是否为移动端
  */
-export function isMobile(): boolean {
-  return isBrowser() && /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(getUA())
-}
+export const isMobile: boolean = isBrowser && /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)
 
 /**
  * 判断是否为平板
  * @returns 是否为平板
  */
-export function isPad(): boolean {
-  return isBrowser() && /iPad/i.test(getUA())
-}
+export const isPad: boolean = isBrowser && /iPad/i.test(ua)
+
+/**
+ * 判断是否为 PC
+ * @returns 是否为 PC
+ */
+export const isPC: boolean = !isMobile && !isPad
 
 /**
  * 判断是否为 iOS
  * @returns 是否为 iOS
  */
-export function isIOS(): boolean {
-  return isBrowser() && /iPhone|iPad|iPod|iOS/i.test(getUA())
-}
+export const isIOS: boolean = isBrowser && /iPhone|iPad|iPod|iOS/i.test(ua)
 
 /**
  * 判断是否为 Android
  * @returns 是否为 Android
  */
-export function isAndroid(): boolean {
-  return isBrowser() && /Android/i.test(getUA())
-}
+export const isAndroid: boolean = isBrowser && /Android/i.test(ua)
 
 /**
  * 判断是否为 Windows 系统
  * @returns 是否为 Windows 系统
  */
-export function isWindows(): boolean {
-  return isBrowser() && /Windows/i.test(getUA())
-}
+export const isWindows: boolean = isBrowser && /Windows/i.test(ua)
 
 /**
  * 判断是否为 Mac 系统
  * @returns 是否为 Mac 系统
  */
-export function isMac(): boolean {
-  return isBrowser() && /Mac/i.test(getUA())
-}
+export const isMac: boolean = isBrowser && /Mac/i.test(ua)
 
 /**
  * 判断是否为 Linux 系统
  * @returns 是否为 Linux 系统
  */
-export function isLinux(): boolean {
-  return isBrowser() && /Linux/i.test(getUA())
-}
+export const isLinux: boolean = isBrowser && /Linux/i.test(ua)
