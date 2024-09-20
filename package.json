@@ -2,7 +2,7 @@
   "name": "@areschang/utils",
   "type": "module",
   "version": "0.0.11",
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.10.0",
   "description": "Opinionated collection of common JavaScript / TypeScript utils by @Ares-Chang",
   "author": "Ares Change <AresChang114@qq.com>",
   "license": "MIT",
@@ -51,20 +51,19 @@
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.23.0",
-    "@antfu/ni": "^0.22.0",
-    "@antfu/utils": "^0.7.10",
-    "@types/node": "^20.14.11",
-    "bumpp": "^9.4.1",
-    "eslint": "^9.7.0",
+    "@antfu/eslint-config": "^3.6.2",
+    "@antfu/ni": "^0.23.0",
+    "@types/node": "^22.5.5",
+    "bumpp": "^9.5.2",
+    "eslint": "^9.10.0",
     "esno": "^4.7.0",
-    "lint-staged": "^15.2.7",
-    "pnpm": "^9.5.0",
+    "lint-staged": "^15.2.10",
+    "pnpm": "^9.10.0",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.5.3",
+    "typescript": "^5.6.2",
     "unbuild": "^2.0.0",
-    "vite": "^5.3.4",
-    "vitest": "^2.0.3"
+    "vite": "^5.3.6",
+    "vitest": "^2.1.1"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
