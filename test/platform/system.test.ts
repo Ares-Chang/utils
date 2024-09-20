@@ -5,8 +5,8 @@ import {
   isLinux,
   isMac,
   isMobile,
-  isPC,
   isPad,
+  isPC,
   isWindows,
 } from '../../src/platform/system'
 

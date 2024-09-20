@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
-  isCarNo,
   isCard,
+  isCarNo,
   isEmail,
   isEmpty,
   isMobileNum,
