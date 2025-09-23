@@ -11,7 +11,7 @@
 ## 🚀 Install
 
 ```sh
-pnpm add uni-use-router --save-dev
+pnpm add @areschang/utils --save-dev
 ```
 
 ## ⚡️ Usage
